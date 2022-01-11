@@ -7,6 +7,7 @@ package oodp_as10;
 
 import java.util.HashMap;
 import java.util.Vector;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -68,6 +69,12 @@ public class Main extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Camera LK");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -115,6 +122,7 @@ public class Main extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Brand :-");
 
+        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
         jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jTextField1.setOpaque(false);
@@ -128,6 +136,7 @@ public class Main extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Model :-");
 
+        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jTextField2.setOpaque(false);
@@ -136,6 +145,7 @@ public class Main extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Type :-");
 
+        jTextField3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(255, 255, 255));
         jTextField3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jTextField3.setOpaque(false);
@@ -144,6 +154,7 @@ public class Main extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Sensor :-");
 
+        jTextField4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextField4.setForeground(new java.awt.Color(255, 255, 255));
         jTextField4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jTextField4.setOpaque(false);
@@ -152,6 +163,7 @@ public class Main extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Image sensor :-");
 
+        jTextField5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextField5.setForeground(new java.awt.Color(255, 255, 255));
         jTextField5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jTextField5.setOpaque(false);
@@ -160,6 +172,7 @@ public class Main extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Video resolution :-");
 
+        jTextField6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(255, 255, 255));
         jTextField6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jTextField6.setOpaque(false);
@@ -168,6 +181,7 @@ public class Main extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Storage :-");
 
+        jTextField7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextField7.setForeground(new java.awt.Color(255, 255, 255));
         jTextField7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         jTextField7.setOpaque(false);
@@ -366,8 +380,9 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -382,6 +397,7 @@ public class Main extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -588,7 +604,25 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+        
+            tblModel.removeRow(jTable1.getSelectedRow());
+            
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+        idLabel.setText("Not Selected");
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+        ImageIcon icon = new ImageIcon("src/pic/camera.png");
+         setIconImage(icon.getImage());
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
